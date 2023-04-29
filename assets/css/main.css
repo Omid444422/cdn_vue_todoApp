@@ -7,6 +7,15 @@ body {
   font-family: iransanse;
 }
 
+* {
+  box-sizing: border-box;
+  transition: all 0.5s;
+}
+
+a {
+  cursor: pointer;
+}
+
 #header {
   align-items: center;
   border-radius: 15px;
@@ -44,6 +53,103 @@ body {
   text-decoration: none;
   padding: 0.7rem;
   font-size: 25px;
+}
+
+#main_content {
+  margin-top: 10%;
+}
+#main_content ul {
+  list-style: none;
+  display: flex;
+}
+#main_content ul li {
+  background-color: #2a9d8f;
+  text-align: center !important;
+  border-radius: 25px;
+  margin-right: 0.7rem;
+  padding: 0.5rem;
+  width: 10%;
+}
+#main_content ul li:hover {
+  background-color: #a2d2ff;
+  border-radius: 5px;
+}
+
+.main_content_dark_a {
+  color: white;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.main_content_light_a {
+  color: #e9c46a;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.active_item {
+  background-color: #e9c46a !important;
+  border-radius: 5px !important;
+}
+.active_item a {
+  color: black;
+}
+
+#txt_work {
+  height: 2.7rem;
+  margin-right: 0.2rem;
+  border-radius: 25px;
+  padding-right: 0.8rem;
+  outline: none;
+  border: none;
+  font-size: 25px;
+}
+#txt_work:hover, #txt_work:focus {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.dark_input {
+  background-color: #778da9;
+  color: white;
+}
+
+.light_input {
+  background-color: #edf6f9;
+  color: black;
+}
+
+.danger_input {
+  border: 1px solid red !important;
+}
+
+#btn_submit {
+  margin-bottom: 10px;
+}
+#btn_submit svg {
+  width: 35px !important;
+  height: 35px !important;
+  color: #e76f51;
+}
+
+#test_value {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #a2d2ff;
+  width: 50%;
+  margin: auto 4rem;
+  border-radius: 5px;
+  padding: 0.7rem;
+}
+
+div.first_child {
+  background: #bde0fe;
+  padding: 0.7rem;
+  border-radius: 10px;
+}
+
+input#txt_status {
+  margin-right: 0.4rem;
 }
 
 /*# sourceMappingURL=main.css.map */

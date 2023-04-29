@@ -2,6 +2,7 @@
   "dependencies": {
     "animate.css": "^4.1.1",
     "bootstrap": "^5.2.3",
-    "sass": "^1.62.1"
+    "sass": "^1.62.1",
+    "sweetalert2": "^11.7.3"
   }
 }
