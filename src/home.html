@@ -83,7 +83,7 @@
             </li>
           </ul>
         </div>
-
+        <!-- new item -->
         <div v-if="selected_option == 0" id="todoListContent" class="col-12">
           <form @submit.prevent="{handle_form}">
             <button id="btn_submit" class="btn" type="submit">
@@ -102,11 +102,61 @@
             <div class="second_child">
               <span>وضعیت: </span>
               <label for="txt_status">انجام شده</label>
-              <input type="checkbox" id="txt_status" name="txt_status" class="form-check-input">
+              <input type="checkbox" id="txt_status" name="txt_status" @change="change_status_input" :checked="txt_status?true:false" class="form-check-input">
             </div>
           </div>
-
         </div>
+
+        <!-- all -->
+        <div v-if="selected_option=== 1" id="show_content">
+         <h3 :class="{dark_a:!application_mode,light_a:application_mode,show_content_h3_dark:!application_mode,show_content_h3_light:application_mode}">لیست کارها</h3>
+          <main id="content">
+           <div v-if="todoList" v-for="todoItems in todoList" class="items">
+            <h5>{{ todoItems.name }}</h5>
+            <span>تاریخ: {{ todoItems.time[0]+'/'+todoItems.time[1]+'/'+todoItems.time[2] }}</span>
+            <div class="second_child">
+              <div class="mx-2">
+                <span>وضعیت: </span>
+                <label for="txt_status">انجام شده</label>
+                <input type="checkbox" id="txt_status" @change="change_data_status(todoItems.id)" name="txt_status" :checked="todoItems.status ? true:false" class="form-check-input">
+              </div>
+              <div class="mx-2">
+                <button @click="delete_data(todoItems.id)" class="btn btn-danger">حذف</button>
+              </div>
+            </div>
+           </div>
+          </main>
+          <span v-show="todoList.length <= 0 ? true:false" class="alert alert-danger p-1">
+            هیچ اطلاعاتی برای نمایش وجود ندارد...
+           </span>
+        </div>
+
+
+                <!-- search -->
+                <div v-if="selected_option=== 2" id="search_content">
+                  <div :class="{dark_a:!application_mode,light_a:application_mode,search_content_div_dark:!application_mode,search_content_div_light:application_mode}">سرچ: 
+                    <input type="text" v-model="search_box" name="search_box" id="search_box" class="w-75" :class="{dark_input:!application_mode,light_input:application_mode,danger_input:error}">
+                  </div>              
+                   <main id="content">
+                    <div v-if="todoList" v-for="todoItems in handle_search" class="items">
+                     <h5>{{ todoItems.name }}</h5>
+                     <span>تاریخ: {{ todoItems.time[0]+'/'+todoItems.time[1]+'/'+todoItems.time[2] }}</span>
+                     <div class="second_child">
+                       <div class="mx-2">
+                         <span>وضعیت: </span>
+                         <label for="txt_status">انجام شده</label>
+                         <input type="checkbox" id="txt_status" @change="change_data_status(todoItems.id)" name="txt_status" :checked="todoItems.status ? true:false" class="form-check-input">
+                       </div>
+                       <div class="mx-2">
+                         <button @click="delete_data(todoItems.id)" class="btn btn-danger">حذف</button>
+                       </div>
+                     </div>
+                    </div>
+                   </main>
+                   <span v-show="todoList.length <= 0 ? true:false" class="alert alert-danger p-1">
+                     هیچ اطلاعاتی برای نمایش وجود ندارد...
+                    </span>
+                 </div>
       </main>
     </section>
 
