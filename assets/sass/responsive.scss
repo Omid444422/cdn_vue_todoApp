@@ -1,0 +1,30 @@
+@media screen and (max-width:600px) {
+    #main_content ul{
+        display: flex;
+        li{
+            width: 40%;
+        }
+    }
+}
+
+
+@media screen and (min-width:600px) and (max-width:995px) {
+    #main_content ul{
+        display: flex;
+        li{
+            width: 45%;
+        }
+    }
+}
+
+@media screen and (max-width:765px) {
+    #test_value{
+        display: grid;
+       div {
+        display: block;
+        width: auto;
+       }
+    }
+}
+
+
